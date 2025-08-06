@@ -1,0 +1,205 @@
+.icono-carrito {
+    position: relative;
+    padding: 10px;
+    font-size: 16px;
+    width: 40px;
+    height: 40px;
+}
+
+.icono-carrito::before {
+    content: "\1F6D2";
+    /* Carácter Unicode de la lupa */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+}
+
+.icono-lupa {
+    position: relative;
+    padding: 10px;
+    font-size: 16px;
+    width: 40px;
+    height: 40px;
+}
+
+.icono-lupa::before {
+    content: "\1F50D";
+    /* Carácter Unicode de la lupa */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+}
+
+.icono-nuevo {
+    position: relative;
+    padding: 10px;
+    font-size: 16px;
+    width: 40px;
+    height: 40px;
+}
+
+.icono-nuevo::before {
+    content: "\2795";
+    /* Carácter Unicode del signo más */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+}
+
+
+.icono-guardar {
+    position: relative;
+    padding: 10px;
+    font-size: 16px;
+    width: 40px;
+    height: 40px;
+}
+
+.icono-guardar::before {
+    content: "\1F4BE";
+    /* Carácter Unicode del disquete */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+}
+
+.icono-editar {
+    position: relative;
+    padding: 10px;
+    font-size: 16px;
+    width: 40px;
+    height: 40px;
+}
+
+.icono-editar::before {
+    content: "\270F";
+    /* Carácter Unicode del lápiz */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+}
+
+
+.icono-eliminar {
+    position: relative;
+    padding: 10px;
+
+    font-size: 16px;
+    /*width: 40px;
+    height: 40px;*/
+}
+
+.icono-eliminar::before {
+    content: "\1F5D1";
+    /* Carácter Unicode del basurero */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+}
+
+.icono-reporte {
+    position: relative;
+    padding: 10px;
+    font-size: 16px;
+    width: 40px;
+    height: 40px;
+}
+
+.icono-reporte::before {
+    content: "\1F4C4";
+    /* Carácter Unicode del documento */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+}
+
+.icono-excel {
+    position: relative;
+    padding: 10px;
+    font-size: 16px;
+    width: 40px;
+    height: 40px;
+}
+
+.icono-excel::before {
+    content: "\1F4C8";
+    /* Carácter Unicode del gráfico */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+}
+
+.icono-siguiente {
+    position: relative;
+    padding: 10px;
+    font-size: 16px;
+    width: 40px;
+    height: 40px;
+}
+
+.icono-siguiente::before {
+    content: "\21E8";
+    /* Carácter Unicode para la flecha hacia la derecha */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+}
+
+.icono-atras {
+    position: relative;
+    padding: 10px;
+    font-size: 16px;
+    width: 40px;
+    height: 40px;
+}
+
+.icono-atras::before {
+    content: "\21E6";
+    /* Carácter Unicode para la flecha hacia la izquierda */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+}
+
+
+.icono-copiar {
+    position: relative;
+    padding: 10px;
+    font-size: 16px;
+    width: 40px;
+    height: 40px;
+}
+
+.icono-copiar::before {
+    content: "📋";
+    /* Carácter Unicode para la flecha hacia la izquierda */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {}
+
+@media (min-width: 1025px) {}

@@ -1,0 +1,89 @@
+# Ignore node_modules
+node_modules/
+
+dist/
+
+# Ignore debugging files
+.debug/
+
+# Ignore yarn and npm files
+.yarn-integrity
+.yarn-debug.log
+.pnp.*
+npm-debug.log
+package-lock.json
+
+# Ignore Angular files
+.angular/
+.angular-dev.json
+.angular.json
+angular.json
+
+# Ignore compiled JavaScript files
+.e2e.js
+.src/app/env.js
+.src/app/env.d.ts
+.src/app/env.js.map
+.src/app/env.d.ts.map
+
+# Ignore testing files
+**/*.spec.ts
+**/*.spec.js
+**/*.test.ts
+**/*.test.js
+**/*.e2e-spec.ts
+**/*.e2e-spec.js
+
+# Ignore IDE files
+.idea/
+.vscode/
+
+# Ignore other files
+*.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+*.log
+*.tmp
+*.bak
+*.cache
+*.history
+*.idx
+*.log
+*.pid
+*.tmp
+*.vm
+*.zip
+*.rar
+*.tar
+*.gz
+*.bz2
+*.xz
+*.lzma
+*.lz4
+*.zst
+*.dmg
+*.exe
+*.msi
+*.apk
+*.ipa
+*.deb
+*.rpm
+*.pkg
+*.zip
+*.rar
+*.tar
+*.gz
+*.bz2
+*.xz
+*.lzma
+*.lz4
+*.zst
+*.dmg
+*.exe
+*.msi
+*.apk
+*.ipa
+*.deb
+*.rpm
+*.pkg
