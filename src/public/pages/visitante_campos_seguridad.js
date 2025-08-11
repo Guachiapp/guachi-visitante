@@ -1,7 +1,7 @@
 
 import { getParamURL, isValidUUIDv4 } from '../js/utils.js'
 
-const URL  = '/api-centinela/acceso-visitantes/datos-complementarios/visitante';
+const URL  = '/api-centinela/acceso-visitantes/datos-complementarios';
 
 async function iniciar() {
   const uuid = getParamURL('uuid');
@@ -15,7 +15,6 @@ async function iniciar() {
     flag_error = true
   }
   
-  let campos_seguridad = [];
   const resultado = await obtenerDatosVisitante(uuid);
 
   if (resultado) {
@@ -70,7 +69,7 @@ async function obtenerDatosVisitante(uuid) {
 
 async function buscarVisitante(uuid) {
   try {
-    const response = await fetch(`${URL}/buscar/${uuid}`, {
+    const response = await fetch(`${URL}/visitante/buscar/${uuid}`, {
       method: 'GET',
       headers: {
         'Accept': 'application/json'
@@ -101,7 +100,7 @@ async function buscarVisitante(uuid) {
 
 async function buscarCamposSeguridad(tipo_visitante_id, condominio_id) {
   try {
-    const response = await fetch(`${URL}/campos-seguridad?tipo_visitante_id=${tipo_visitante_id}&condominio_id=${condominio_id}`, {
+    const response = await fetch(`${URL}/visitante/campos-seguridad?tipo_visitante_id=${tipo_visitante_id}&condominio_id=${condominio_id}`, {
       method: 'GET',
       headers: {
         'Accept': 'application/json'
@@ -129,6 +128,38 @@ async function buscarCamposSeguridad(tipo_visitante_id, condominio_id) {
     throw error; // Re-lanzar si necesitas manejarlo en otro lugar
   }
 }
+
+async function guardarDatosVisitaDetalle(formData) {
+  try {
+    const response = await fetch(`${URL}/visita-detalle/guardar`, {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      return data;
+    } else {
+      let errorData = null;
+      try {
+        errorData = await response.json();
+      } catch {}
+
+      const error = new Error(errorData?.message || `Error HTTP: ${response.status}`);
+      error.isHttpError = true;
+      error.status = response.status;
+      error.payload = errorData;
+      throw error;
+    }
+
+  } catch (error) {
+    throw error;
+  }
+}
+
 
 function generarFormulario(visita_id, campos_seguridad){
   const form = document.getElementById('form-seguridad');
@@ -166,7 +197,7 @@ function generarFormulario(visita_id, campos_seguridad){
 }
 
 function cargarEventos() {
-  document.getElementById('form-seguridad').addEventListener('submit', function (e) {
+  document.getElementById('form-seguridad').addEventListener('submit', async function (e) {
     e.preventDefault(); // Evita el envío real
 
     const MAX_FILE_SIZE = 1048576 * 10; // 1 MB en bytes
@@ -225,14 +256,26 @@ function cargarEventos() {
     // Log defensivo
     console.log('📦 FormData listo para enviar:', payload);
 
-    // Enviar al backend
-    //fetch('/api/registro', {
-    //  method: 'POST',
-    //  body: formData
-    //});
+    try {
+        const respuesta = await guardarDatosVisitaDetalle(formData)
+        console.log('Respuesta:', respuesta);
+    } catch (error) {
+        if (error.isHttpError) {
+          console.error('📡 Error del servidor:', error.message);
+          if (error.payload) {
+            console.error('Detalles:', error.payload);
+          }
+          if (error.status >= 500 && error.status < 600) {
+            console.error(`🔁 Redirigiendo por error ${error.status}...`);
+            //window.location.href = '/guachi_e/50x.htm';
+          }
+        } else {
+          console.error('🌐 Error de conexión:', error.message);
+        }
+
+    }
   });
 }
-
 
 /*
 {
