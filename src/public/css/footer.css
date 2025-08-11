@@ -24,6 +24,17 @@
     font-size: 14px;
 }
 
+footer .app-version {
+    font-size: 0.85rem;           
+    color: #666;                  
+    /*text-align: right;           */
+    margin-top: 4px;             
+    font-family: monospace;      
+    letter-spacing: 0.5px;      
+    user-select: all;            
+}
+
+
 @media (max-width:600px) {
     .footer {
         display: flex;
