@@ -206,11 +206,16 @@ function cargarEventos() {
     const form = e.target;
     const formData = new FormData(form);
 
+    const estado = document.getElementById('estado-formulario');
+    estado.classList.add('oculto'); // Oculta antes de enviar
+
     for (const [key, value] of formData.entries()) {
       if (value instanceof File && value.name) {
         if (value.size > MAX_FILE_SIZE) {
           console.error(`❌ El archivo "${value.name}" excede el tamaño permitido (${(value.size / (1024 * 1024)).toFixed(2)} MB)`);
-          alert(`El archivo "${value.name}" supera el límite de 10 MB. Por favor selecciona uno más liviano.`);
+          estado.textContent = `❌ Error el archivo "${value.name}" supera el límite de 10 MB. Por favor selecciona uno más liviano.`;
+          estado.className = "estado-formulario error";
+          //alert(`El archivo "${value.name}" supera el límite de 10 MB. Por favor selecciona uno más liviano.`);
           archivosValidos = false;
           break;
         }
@@ -255,23 +260,36 @@ function cargarEventos() {
 
     // Log defensivo
     console.log('📦 FormData listo para enviar:', payload);
+    
 
     try {
         const respuesta = await guardarDatosVisitaDetalle(formData)
         console.log('Respuesta:', respuesta);
+        if (respuesta.codigo === "00") {
+            estado.textContent = "✅ Datos guardados satisfactoriamente.";
+            estado.className = "estado-formulario exito";
+        } else {
+            estado.textContent = "⚠️ Error al guardar los datos.";
+            estado.className = "estado-formulario error";
+        }
     } catch (error) {
         if (error.isHttpError) {
           console.error('📡 Error del servidor:', error.message);
           if (error.payload) {
             console.error('Detalles:', error.payload);
+            estado.textContent = error.payload.detailed;
           }
           if (error.status >= 500 && error.status < 600) {
             console.error(`🔁 Redirigiendo por error ${error.status}...`);
+            estado.textContent = "❌ En este momento no pudimos atender su solicitud. Por favor, intenta nuevamente más tarde.";
             //window.location.href = '/guachi_e/50x.htm';
           }
         } else {
           console.error('🌐 Error de conexión:', error.message);
+          estado.textContent = "❌ Error de conexión o inesperado.";
         }
+        
+        estado.className = "estado-formulario error";
 
     }
   });

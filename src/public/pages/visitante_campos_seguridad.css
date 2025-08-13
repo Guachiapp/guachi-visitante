@@ -60,6 +60,32 @@ button[type="submit"]:hover {
   background-color: #005fa3;
 }
 
+.estado-formulario {
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: opacity 0.3s ease;
+}
+
+.estado-formulario.exito {
+    background-color: #e6f4ea;
+    color: #2e7d32;
+    border: 1px solid #c8e6c9;
+}
+
+.estado-formulario.error {
+    background-color: #fbe9e7;
+    color: #d32f2f;
+    border: 1px solid #ef9a9a;
+}
+
+.oculto {
+    display: none;
+}
+
+
 @media (max-width: 600px) {
   .form-container {
     padding: 16px;
