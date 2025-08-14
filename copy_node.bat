@@ -11,10 +11,14 @@ if not exist "%ORIGEN%" (
     exit /b 1
 )
 
-REM Verificar que la carpeta de destino existe
+REM Verificar si la carpeta de destino existe; si no, crearla|
 if not exist "%DESTINO%" (
-    echo La carpeta de destino no existe: %DESTINO%
-    exit /b 1
+    echo La carpeta de destino no existe. Creando: %DESTINO%
+    mkdir "%DESTINO%"
+    if errorlevel 1 (
+        echo Error al crear la carpeta de destino: %DESTINO%
+        exit /b 1
+    )
 )
 
 REM Eliminar contenido del destino (sin borrar la carpeta)
