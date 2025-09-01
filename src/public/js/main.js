@@ -2,12 +2,12 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   const contentDiv = document.getElementById('content');
+/*
+'#home': { template: 'home.htm', script: 'home.js', style: 'home.css' },    
+'#about': { template: 'about.htm', script: 'about.js', style: 'about.css' }, */
 
   const routes = {
-    '#home': { template: 'home.htm', script: 'home.js', style: 'home.css' },
-    '#contact': { content: '<br><h2>Contacto</h2><br><p> Puedes contactarnos a traves del siguiente correo: ejemplo@correo.com</p><br><p> Teléfono: 0412-XXXYYYYY<p/><br>' },
-    '#about': { template: 'about.htm', script: 'about.js', style: 'about.css' },
-    '#login': { action: 'redirect', url: 'login.htm' },
+    '#home': { action: 'redirect', url: 'https://guachiapp.com/' },
     '#visitante-datos-complementarios': { template: 'visitante_campos_seguridad.htm', script: 'visitante_campos_seguridad.js', style: 'visitante_campos_seguridad.css' }
   };
   

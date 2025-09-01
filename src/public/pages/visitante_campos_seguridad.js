@@ -49,7 +49,7 @@ async function obtenerDatosVisitante(uuid) {
       }
       if (error.status >= 500 && error.status < 600) {
         console.error(`🔁 Redirigiendo por error ${error.status}...`);
-        window.location.href = '/guachi_e/50x.htm';
+        window.location.href = '/50x.htm';
         return null;
       }
     } else {
@@ -59,8 +59,8 @@ async function obtenerDatosVisitante(uuid) {
   }
 
   if (flag_error) {
-    // window.location.href = 'https://guachiapp.com/';
-    window.location.href = '/guachi_e/';
+    window.location.href = 'https://guachiapp.com/';
+    //window.location.href = '/';
   }
 
   return null;
@@ -277,12 +277,12 @@ function cargarEventos() {
           console.error('📡 Error del servidor:', error.message);
           if (error.payload) {
             console.error('Detalles:', error.payload);
-            estado.textContent = error.payload.detailed;
+            estado.textContent = error.payload.detail;
           }
           if (error.status >= 500 && error.status < 600) {
             console.error(`🔁 Redirigiendo por error ${error.status}...`);
             estado.textContent = "❌ En este momento no pudimos atender su solicitud. Por favor, intenta nuevamente más tarde.";
-            //window.location.href = '/guachi_e/50x.htm';
+            //window.location.href = '/50x.htm';
           }
         } else {
           console.error('🌐 Error de conexión:', error.message);
