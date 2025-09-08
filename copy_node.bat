@@ -2,7 +2,7 @@
 setlocal
 
 REM Definir rutas
-set "DESTINO=C:\Codes\NodeJs\dev-server\public\guachi_e"
+set "DESTINO=C:\Codes\NodeJs\dev-server\public"
 set "ORIGEN=C:\Codes\VanillaJs\guachi_e\dist"
 
 REM Verificar que la carpeta de origen existe
@@ -11,14 +11,9 @@ if not exist "%ORIGEN%" (
     exit /b 1
 )
 
-REM Verificar si la carpeta de destino existe; si no, crearla|
+REM Verificar si la carpeta de destino existe
 if not exist "%DESTINO%" (
     echo La carpeta de destino no existe. Creando: %DESTINO%
-    mkdir "%DESTINO%"
-    if errorlevel 1 (
-        echo Error al crear la carpeta de destino: %DESTINO%
-        exit /b 1
-    )
 )
 
 REM Eliminar contenido del destino (sin borrar la carpeta)
