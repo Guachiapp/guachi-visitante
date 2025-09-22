@@ -60,7 +60,6 @@ async function obtenerDatosVisitante(uuid) {
 
   if (flag_error) {
     window.location.href = 'https://guachiapp.com/';
-    //window.location.href = '/';
   }
 
   return null;
